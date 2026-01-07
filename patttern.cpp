@@ -66,6 +66,12 @@ void printTriangleBoth(int rows) {
 }
 
 int main() {
-    // printTriangleAsc(5);
+    printTriangleAsc(5);
+    cout << endl;
+
+    printTriangleDesc(5);
+    cout << endl;
+    
     printTriangleBoth(5);
+    cout << endl;
 }
