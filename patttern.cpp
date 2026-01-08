@@ -74,6 +74,52 @@ void printBookTriangle( int rows) {
     }
 }
 
+void printMirrorTriangle(int rows) {
+    // LOGIC 1: NON - MATHEMATICAL
+    // for(int i = 1; i <= rows; i++) {
+    //     // 1st Triangle (ith row)
+    //     for(int j = 1; j <= rows; j++) {
+    //         if(j <= i) {
+    //             cout << j;
+    //         } else {
+    //             cout << " ";
+    //         }
+    //     }
+
+    //     // 2nd Triangle (ith row)
+    //     for(int j = rows; j >= 1; j--) {
+    //         if(j > i) {
+    //             cout << " ";
+    //         } else {
+    //             cout << j;
+    //         }
+    //     }
+        
+
+    //     cout << endl;
+    // }
+
+    //  LOGIC 2: MATHEMATICAL
+    for(int i = 1; i <= rows; i++) {
+        int numSpaces = 2 * (rows - i);
+        // Number
+        for(int j = 1; j <= i; j++) {
+            cout << j;
+        }
+
+        // Space
+        for(int k = 1; k <= numSpaces; k++) {
+            cout << " ";
+        }
+
+        // Number
+        for(int l = i; l >= 1; l--) {
+            cout << l;
+        }
+        cout << endl;
+    }
+}
+
 int main() {
     printTriangleAsc(5);
     cout << endl;
@@ -85,5 +131,8 @@ int main() {
     cout << endl;
 
     printBookTriangle(5);
+    cout << endl;
+    
+    printMirrorTriangle(9);
     cout << endl;
 }
