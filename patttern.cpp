@@ -146,6 +146,60 @@ void printCharTriangle(int rows) {
     }
 }
 
+void printRevCharStair(int rows) {
+    for (int i = 1; i <= rows; i++) {
+        char c = 'A' + (rows - i);
+        for(int j = 1; j <= i; j++) {
+            cout << c << " ";
+            c++;
+        }
+        cout << endl;
+    }
+}
+
+
+void printVoidDiamond(int rows) {
+    for(int i = 1; i <= rows; i++) {
+        // Star
+        for(int j = rows; j >= i; j--) {
+            cout << '*';
+        }
+
+        // Spaces
+        int spaces = 2 * (i - 1);
+        for(int j = 1; j <= spaces; j++) {
+            cout << ' ';
+        }
+
+        // Star
+        for(int j = i; j <= rows; j++) {
+            cout << '*';
+        }
+
+        cout << endl;
+    }
+
+    for(int i = 1; i <= rows; i++) {
+        // Star
+        for(int j = 1; j <= i; j++) {
+            cout << '*';
+        }
+
+        // Spaces
+        int spaces = 2 * (rows - (i - 1)) - 1;
+        for(int j = spaces; j >= (i - 1); j--) {
+            cout << ' ';
+        }
+
+        // Star
+        for(int j = 1; j <= i; j++) {
+            cout << '*';
+        }
+
+        cout << endl;
+    }
+}
+
 int main() {
     printTriangleAsc(5);
     cout << endl;
@@ -164,4 +218,11 @@ int main() {
 
     printCharTriangle(5);
     cout << endl;
+
+    printRevCharStair(5);
+    cout << endl;
+
+    printVoidDiamond(5);
+    cout << endl;
+
 }
