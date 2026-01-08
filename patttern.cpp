@@ -120,6 +120,32 @@ void printMirrorTriangle(int rows) {
     }
 }
 
+void printCharTriangle(int rows) {
+    for(int i = 1; i <= rows; i++) {
+        // Space
+        for(int j = 1; j <= rows-i-1; j++) {
+            cout << " ";
+        }
+        // Chars
+        char c = 'A';
+        int numChars = 2 * (i - 1) + 1;
+        for(int j = 1; j <= numChars; j++) {
+            cout << c;
+            if(j >= (numChars) / 2 + 1) {
+                c--;
+            } else {
+                c++;
+            }
+        }
+
+        // Space
+        for(int j = 1; j <= rows-i-1; j++) {
+            cout << " ";
+        }
+        cout << endl;
+    }
+}
+
 int main() {
     printTriangleAsc(5);
     cout << endl;
@@ -134,5 +160,8 @@ int main() {
     cout << endl;
     
     printMirrorTriangle(9);
+    cout << endl;
+
+    printCharTriangle(5);
     cout << endl;
 }

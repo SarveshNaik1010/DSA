@@ -18,3 +18,5 @@ for (int i = 1; i <= N; i++) {
     }
 }
 ```
+
+## TIP (For Patterns) - A bit of observation, maths, and bit of symmetry
