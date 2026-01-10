@@ -1,4 +1,5 @@
 #include<iostream>
+#include <algorithm>
 using namespace std;
 
 void printTriangleAsc(int rows) {
@@ -186,9 +187,9 @@ void printVoidDiamond(int rows) {
         }
 
         // Spaces
-        int spaces = 2 * (rows - (i - 1)) - 1;
-        for(int j = spaces; j >= (i - 1); j--) {
-            cout << ' ';
+        int spaces = 2 * (rows - (i - 1) - 1);
+        for(int j = spaces; j >= 1; j--) {
+            cout << " ";
         }
 
         // Star
@@ -196,6 +197,87 @@ void printVoidDiamond(int rows) {
             cout << '*';
         }
 
+        cout << endl;
+    }
+}
+
+void printMirrorTriangle2(int rows) {
+    int totalRows = (2 * rows) - 1;
+    for(int i = 1; i <= totalRows; i++) {
+        int numStars, numSpaces;
+        if(i <= rows) {
+            numSpaces = 2 * (rows - i);
+            numStars = i;
+        } else {
+            numStars = totalRows - i + 1;
+            numSpaces = 2 * (i - rows);
+        }
+
+        // Star
+        for(int j= 1; j <= numStars; j++) {
+            cout << "*";
+        }
+
+        // Spaces
+        for(int j = 1; j <= numSpaces; j++) {
+            cout << " ";
+        }
+
+        // Star
+        for(int j= 1; j <= numStars; j++) {
+            cout << "*";
+        }
+
+        cout << endl;
+    }
+}
+
+void printSquare(int rows) {
+    // 1st Approach
+    for(int i = 1; i <= rows; i++) {
+        for(int j = 1; j <= rows; j++) {
+            if(i == 1 || i == rows || j == 1 || j == rows) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void printNumSquare(int max) {
+    // // Leave
+    // int maxRows = 2 * max - 1;
+    // for(int i = 1; i <= maxRows; i++) {
+    //     for(int j = 1; j <= maxRows; j++) {
+    //         int low_i = max % 2 + i;
+    //         int up_i = max * 2 - i;
+
+    //         int low_j = max % 2 + j;
+    //         int up_j = max * 2 - j;
+    //         // cout << low << " " << up << " ";
+
+    //         if(i == low_i || j == low_j) {
+    //             int num = low_i == i ? max - (low_i - 1) : max - (low_j - 1);
+    //             cout << num;
+    //             continue;
+    //         } else {
+    //             int num = up_i == i ? (up_i + 1) / 2 : (up_j + 1) / 2;
+    //             cout << num;
+    //         }
+    //     }
+    //     cout << endl;
+    // }
+
+    for(int i = 0; i < max * 2 - 1; i++) {
+        for(int j = 0; j < max * 2 - 1; j++) {
+            int top = i;
+            int left = j;
+            int right = (2 * max - 2) - j;
+            int bottom = (2 * max - 2) - i;
+            cout << max - min(min(top, right), min(bottom, left));
+        }
         cout << endl;
     }
 }
@@ -223,6 +305,15 @@ int main() {
     cout << endl;
 
     printVoidDiamond(5);
+    cout << endl;
+
+    printMirrorTriangle2(5);
+    cout << endl;
+
+    printSquare(10);
+    cout << endl;
+
+    printNumSquare(4);
     cout << endl;
 
 }
