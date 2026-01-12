@@ -39,6 +39,7 @@ void armstrong(int num) {
     
 }
 
+// Very important
 void printDivisiors(int n) {
     vector<int> ls;
 
