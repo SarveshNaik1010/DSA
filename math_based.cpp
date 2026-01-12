@@ -41,7 +41,7 @@ void armstrong(int num) {
 
 void printDivisiors(int n) {
     vector<int> ls;
-    
+
     for(int i = 1; i * i <= n; i++) {
         if(n % i == 0) {
             ls.push_back(i);
@@ -53,7 +53,18 @@ void printDivisiors(int n) {
 
     sort(ls.begin(), ls.end());
     for(auto it: ls) cout << it << " ";
+    cout << endl;
      
+}
+
+void printGCD(int num1, int num2) {
+    while(num1 > 0 && num2 > 0) {
+        if(num1 > num2) num1 = num1 % num2;
+        else num2 = num2 % num1;
+    }
+
+    if(num1 == 0) cout << num2 << endl;
+    if(num2 == 0) cout << num1 << endl;
 }
 
 int main() {
@@ -63,5 +74,6 @@ int main() {
     // armstrong(371);
     armstrong(153);
     printDivisiors(36);
+    printGCD(20, 40);
     return 0;
 }
