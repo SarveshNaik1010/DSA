@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int revNum(int num) {
+void revNum(int num) {
     int revNum = 0;
     while(num > 0) {
         int lastDigit = num % 10;
@@ -9,11 +9,41 @@ int revNum(int num) {
         num = num / 10;
     }
 
-    return revNum;
+    cout << revNum << endl;;
+}
+
+void checkPalindrome(int num) {
+    int temp = num;
+    int revNum = 0;
+    while(temp > 0) {
+        int ld = temp % 10;
+        revNum = revNum * 10 + ld;
+        temp = temp / 10;
+    }
+
+    cout << (revNum == num ? "Palindrone" : "Not Palindrome") << endl; 
+    
+}
+
+void armstrong(int num) {
+    int temp = num;
+    int sum = 0;
+    while (temp > 0) {
+        int ld = temp % 10;
+        sum = sum + (ld * ld * ld);  
+        temp = temp / 10;
+        
+    }
+
+    cout << (sum == num ? "Armstrong" : "Not Armstrong") << endl; 
+    
 }
 
 int main() {
-    int num = revNum(401001);
-    cout << num;
+    revNum(400);
+    checkPalindrome(401001);
+    checkPalindrome(12321);
+    // armstrong(371);
+    armstrong(153);
     return 0;
 }
