@@ -39,11 +39,29 @@ void armstrong(int num) {
     
 }
 
+void printDivisiors(int n) {
+    vector<int> ls;
+    
+    for(int i = 1; i * i <= n; i++) {
+        if(n % i == 0) {
+            ls.push_back(i);
+            if((n / i) != i) {
+                ls.push_back(n / i);
+            }
+        };
+    }
+
+    sort(ls.begin(), ls.end());
+    for(auto it: ls) cout << it << " ";
+     
+}
+
 int main() {
     revNum(400);
     checkPalindrome(401001);
     checkPalindrome(12321);
     // armstrong(371);
     armstrong(153);
+    printDivisiors(36);
     return 0;
 }
