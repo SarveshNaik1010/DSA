@@ -40,22 +40,20 @@ void armstrong(int num) {
 }
 
 // Very important
-void printDivisiors(int n) {
-    vector<int> ls;
-
-    for(int i = 1; i * i <= n; i++) {
-        if(n % i == 0) {
-            ls.push_back(i);
-            if((n / i) != i) {
-                ls.push_back(n / i);
-            }
-        };
+void printDivisiors(int num) {
+    set<int> ls;
+    for(int i = 1; i * i <= num; i++) {
+        if(num % i == 0) {
+            ls.insert(i);
+            if(num / i != i) ls.insert(num / i);
+        }
     }
 
-    sort(ls.begin(), ls.end());
-    for(auto it: ls) cout << it << " ";
+    for(auto it = ls.begin(); it != ls.end(); it++) {
+        cout << *it << " ";
+    }
+
     cout << endl;
-     
 }
 
 void printGCD(int num1, int num2) {
