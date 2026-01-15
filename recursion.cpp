@@ -53,9 +53,11 @@ bool isPalindrome(int i, string s, int n) {
     return isPalindrome(i + 1, s, n);   
 }
 
-int fibo(int low, int up, int i, int range) {
-    if(i >= range) return up;
-    return(up, low + up, i + 1, range);
+void fibo(int low, int up, int i, int range) {
+    if(i > range) return;
+    cout << low << " ";
+    fibo(up, low + up, i+1, range);
+
 }
 
 int main() {
@@ -85,7 +87,7 @@ int main() {
     cout << isPalindrome(0, "tenet", 5);
     cout << endl;
 
-    cout <<  isPalindrome(0, "tenet", 5);
+    fibo(0, 1, 1, 15);
     cout << endl;
 
 
