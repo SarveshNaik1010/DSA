@@ -2,8 +2,8 @@
 using namespace std;
 
 int main() {
-    int arr[] = {2, 7, 3, 8, 12, 5, 10, 2, 7, 3, 3};
-    int n = sizeof(arr);
+    int arr[] = {2, 7, 3, 8, 11, 5, 10, 2, 7, 3, 3};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
     // Precompute
     int hash[12] = {0};
@@ -17,7 +17,7 @@ int main() {
         int num;
         cin >> num;
         // Fetch
-        cout << hash[q];
+        cout << hash[num] << endl;
     }
 
     return 0;
