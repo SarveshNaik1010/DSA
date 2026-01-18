@@ -64,8 +64,8 @@ void hashNumMap() {
 }
 
 int main() {
-    // hashNum();
-    // hashChar();
+    hashNum();
+    hashChar();
     hashNumMap();
 
     
