@@ -61,7 +61,6 @@ void hashNumMap() {
         cout << mpp[num] << endl;
     }
 
-
 }
 
 int main() {
