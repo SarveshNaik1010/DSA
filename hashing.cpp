@@ -21,6 +21,8 @@ void hashNum() {
     }
 }
 
+// Change
+
 void hashChar() {
     string str = "deforetnvonedovnrdjbvdebvncofnveonvonsdzxbvjxbnakslfjghueiqoioepietuieryovnbefonvwdnvlwbfvwl";
 
