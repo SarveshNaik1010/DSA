@@ -21,25 +21,37 @@ int main() {
     // }
 
     // Working with vectors
-    int n;
-    cout << "Enter the max N ";
-    cin >> n;
+    // int n;
+    // cout << "Enter the max N ";
+    // cin >> n;
     
-    vector<int> v;
-    cout << "Enter the elements\n";
-    for(int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        v.push_back(num);
-    }
+    // vector<int> v;
+    // cout << "Enter the elements\n";
+    // for(int i = 0; i < n; i++) {
+    //     int num;
+    //     cin >> num;
+    //     v.push_back(num);
+    // }
 
-    // Access element at xth position
-    int x;
-    cout << "Enter the xth pos to print: ";
-    cin >> x;
-    cout << v.at(x);
+    // // Access element at xth position
+    // int x;
+    // cout << "Enter the xth pos to print: ";
+    // cin >> x;
+    // cout << v.at(x);
 
-    
+    // Working with pointers
+    // int x = 23;
+    // int *ptr;
+    // ptr = &x;
+
+    // int **new_ptr = &ptr;
+
+    // cout << *new_ptr << endl;
+    // cout << ptr << endl;
+    // cout << *ptr << endl;
+
+    // A new concept
+
 
 
     return 0;
