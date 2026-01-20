@@ -50,8 +50,32 @@ int main() {
     // cout << ptr << endl;
     // cout << *ptr << endl;
 
-    // A new concept
+    // MAP
 
+    // Defination
+    int numStudents;
+    map<string, int> nameRoll;
+
+    // Assignment
+    cout << "Enter the number of students: ";
+    cin >> numStudents;
+
+    for(int i = 0; i < numStudents; i++) {
+        string name;
+        int rollNo;
+
+        cout << "Enter details of student " << i+1 << endl;
+        cin >> name;
+        cin >> rollNo;
+
+        nameRoll[name] = rollNo;
+    }
+
+    cout << "Here are student details" << endl;
+    cout << "Name: " << setw(10) << "RollNo: " << endl;
+    for(auto it: nameRoll) {
+        cout << it.first << setw(10) << it.second << endl;
+    }
 
 
     return 0;
