@@ -1,7 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Recursion
+void f(int x) {
+    if(x < 1) return;
+    f(x-1);
+    cout << x << endl;
+}
+
+int sum(int x) {
+    if(x == 1) return 1;
+    
+    int addition = x + sum(x - 1);
+
+    return addition;
+}
+
+int isPalindrome(string str, int i , int n) {
+    if(i > (n / 2)) return true;
+    if(str[i] != str[n - i - 1]) return false;
+
+    return isPalindrome(str, i+1, n);
+}
+
 int main() {
+    {
     // STL
     // 1. Given N elements print them in sorted order
     // int n;
@@ -53,30 +76,38 @@ int main() {
     // MAP
 
     // Defination
-    int numStudents;
-    map<string, int> nameRoll;
+    // int numStudents;
+    // map<string, int> nameRoll;
 
     // Assignment
-    cout << "Enter the number of students: ";
-    cin >> numStudents;
+    // cout << "Enter the number of students: ";
+    // cin >> numStudents;
 
-    for(int i = 0; i < numStudents; i++) {
-        string name;
-        int rollNo;
+    // for(int i = 0; i < numStudents; i++) {
+    //     string name;
+    //     int rollNo;
 
-        cout << "Enter details of student " << i+1 << endl;
-        cin >> name;
-        cin >> rollNo;
+    //     cout << "Enter details of student " << i+1 << endl;
+    //     cin >> name;
+    //     cin >> rollNo;
 
-        nameRoll[name] = rollNo;
+    //     nameRoll[name] = rollNo;
+    // }
+
+    // cout << "Here are student details" << endl;
+    // cout << "Name: " << setw(10) << "RollNo: " << endl;
+    // for(auto it: nameRoll) {
+    //     cout << it.first << setw(10) << it.second << endl;
+    // }
     }
 
-    cout << "Here are student details" << endl;
-    cout << "Name: " << setw(10) << "RollNo: " << endl;
-    for(auto it: nameRoll) {
-        cout << it.first << setw(10) << it.second << endl;
-    }
+    // f(5);
 
+    // int addition = sum(5);
+    // cout << addition;
+
+    cout << isPalindrome("TENET", 0, 5) << endl;
+    cout << isPalindrome("1001", 0, 4);
 
     return 0;
 }
