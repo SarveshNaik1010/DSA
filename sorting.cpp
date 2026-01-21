@@ -4,13 +4,16 @@ using namespace std;
 void selection(int arr[], int n) {
     // Sorting
     for(int i = 0; i < n; i++) {
-        int min = 0;
+        int minIndex = i;
         for(int j = i; j < n; j++) {
-            if(arr[j] <= min) {
-                min = arr[j];
+            if(arr[j] < arr[minIndex]) {
+                minIndex = j;
             }
-        }
-        arr[i] = min;
+        }        
+        int temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+
     }
 
     // Sorted
