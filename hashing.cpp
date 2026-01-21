@@ -65,10 +65,42 @@ void hashNumMap() {
 
 }
 
+void hashHighestLowestFrequency() {
+    // int arr[] = {2, 7, 3, 8, 11, 5, 10, 2, 7, 3, 3};
+    int arr[] = {1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 5, 5, 5, 5, 0};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    // Pre-Compute
+    map<int, int> mpp;
+    for(int i = 0; i < n; i++) {
+        mpp[arr[i]]++;
+    }
+
+    // Frequency
+    pair<int, int> lowest = *mpp.begin();
+    pair<int, int> highest = *mpp.begin();
+
+    for(auto it: mpp) {
+        if(it.second < lowest.second) {
+            lowest.first = it.first;
+            lowest.second = it.second;
+        } 
+
+        if(it.second > highest.second) {
+            highest.first = it.first;
+            highest.second = it.second;
+        } 
+    }
+
+    cout << lowest.first << ": " << lowest.second << endl;
+    cout << highest.first << ": " << highest.second << endl;
+}
+
 int main() {
-    hashNum();
-    hashChar();
-    hashNumMap();
+    // hashNum();
+    // hashChar();
+    // hashNumMap();
+    hashHighestLowestFrequency();
 
     
 
