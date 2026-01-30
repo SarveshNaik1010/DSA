@@ -45,13 +45,29 @@ void bubble(int arr[], int n) {
     cout << "Iterations: " << iter;
 }
 
+void insertion(int arr[], int n) {
+    for(int i = 1; i < n; i++) {
+        int nextEle = arr[i];
+        int j = i - 1;
+        while(j >= 0 && nextEle < arr[j]) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = nextEle;
+    }
+
+    printArray(arr, n);
+}
+
+
 int main() {
-    // int arr[] = {13, 7, 4, 17, 9, 2, 18, 5};
-    int arr[] = {1, 3, 2, 4, 5};
+    int arr[] = {13, 7, 4, 17, 9, 2, 18, 5};
+    // int arr[] = {1, 3, 2, 4, 5};
     int size = sizeof(arr) / sizeof(arr[0]);
     
     // selection(arr, size);
-    bubble(arr, size);
+    // bubble(arr, size);
+    insertion(arr, size);
 
 
     return 0;
