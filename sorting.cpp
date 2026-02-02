@@ -107,6 +107,18 @@ void recBubble(vector<int> &arr, int end) {
     recBubble(arr, end - 1);
 }
 
+void recInsertion(vector<int> &arr, int currIn) {
+    if(currIn > arr.size() - 1) return;
+
+    int tempInd = currIn;
+    while(tempInd > 0 && arr[tempInd] < arr[tempInd - 1]) {
+        swap(arr[tempInd], arr[tempInd - 1]);
+        tempInd--;
+    }
+
+    recInsertion(arr, currIn + 1);
+}
+
 int main() {
     int arr[] = {13, 7, 4, 17, 9, 2, 18, 5};
     // int arr[] = {1, 3, 2, 4, 5};
@@ -118,7 +130,8 @@ int main() {
     vector<int> arrV = {13, 7, 4, 17, 9, 2, 18, 5};
 
     // mergeSort(arrV, 0, arrV.size() - 1);
-    recBubble(arrV, arrV.size());
+    // recBubble(arrV, arrV.size());
+    recInsertion(arrV, 1);
 
     for(int i = 0; i < arrV.size(); i++) {
         cout << arrV[i] << " ";
