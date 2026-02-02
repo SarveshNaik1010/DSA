@@ -97,7 +97,15 @@ void mergeSort(vector<int> &arr, int low, int high) {
     merge(arr, low, mid, high);
 }
 
-
+void recBubble(vector<int> &arr, int end) {
+    if(end == 0) return;
+    for(int i = 0; i < end - 1; i++) {
+        if(arr[i] > arr[i+1]) {
+            swap(arr[i], arr[i+1]);
+        }
+    }
+    recBubble(arr, end - 1);
+}
 
 int main() {
     int arr[] = {13, 7, 4, 17, 9, 2, 18, 5};
@@ -109,7 +117,8 @@ int main() {
     // insertion(arr, size);
     vector<int> arrV = {13, 7, 4, 17, 9, 2, 18, 5};
 
-    mergeSort(arrV, 0, arrV.size() - 1);
+    // mergeSort(arrV, 0, arrV.size() - 1);
+    recBubble(arrV, arrV.size());
 
     for(int i = 0; i < arrV.size(); i++) {
         cout << arrV[i] << " ";
