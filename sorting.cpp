@@ -119,6 +119,26 @@ void recInsertion(vector<int> &arr, int currIn) {
     recInsertion(arr, currIn + 1);
 }
 
+void quickSort(vector<int> &arr, int start, int end) {
+    end = end - 1;
+    if(start >= end) return;
+
+    int p = (start + end) / 2;
+    int i = start;
+    int j = p + 1;
+    while(i != p) {
+        if(arr[p] < arr[i]) {
+            swap(arr[i], arr[j]);
+            j++;
+        } else {
+            i++;
+        }
+    }
+
+    if(p != start) quickSort(arr, start, i);
+    if(p != end) quickSort(arr, p+1, end);
+}
+
 int main() {
     int arr[] = {13, 7, 4, 17, 9, 2, 18, 5};
     // int arr[] = {1, 3, 2, 4, 5};
@@ -131,7 +151,8 @@ int main() {
 
     // mergeSort(arrV, 0, arrV.size() - 1);
     // recBubble(arrV, arrV.size());
-    recInsertion(arrV, 1);
+    // recInsertion(arrV, 1);
+    quickSort(arrV, 0, arrV.size() - 1);
 
     for(int i = 0; i < arrV.size(); i++) {
         cout << arrV[i] << " ";
