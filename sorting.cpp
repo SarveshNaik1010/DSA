@@ -119,24 +119,53 @@ void recInsertion(vector<int> &arr, int currIn) {
     recInsertion(arr, currIn + 1);
 }
 
-void quickSort(vector<int> &arr, int start, int end) {
-    end = end - 1;
-    if(start >= end) return;
+    // if(low >= high) return;
+    // int pivot = low;
+    // int i = low;
+    // int j = high;
+    // while(i < j) {
+    //     if(j >= i) {
+    //         swap(arr[pivot], arr[j]);
+    //         break;
+    //     }
+    //     if(arr[i] > arr[pivot]) {
+    //         if(arr[j] < arr[pivot]) {
+    //             swap(arr[i], arr[j]);
+    //         } else {
+    //             j--;
+    //         }
+    //     } else {
+    //         i++;
+    //     }
+    // }
+    // quickSort(arr, low, pivot - 1);
+    // quickSort(arr, pivot + 1, high);
 
-    int p = (start + end) / 2;
-    int i = start;
-    int j = p + 1;
-    while(i != p) {
-        if(arr[p] < arr[i]) {
-            swap(arr[i], arr[j]);
-            j++;
-        } else {
-            i++;
-        }
+int partition(vector<int> &arr, int low, int high) {
+    int pivot = arr[low];
+    int i = low + 1;
+    int j = high;
+
+    while (true) {
+        while (i <= high && arr[i] <= pivot) i++;
+        while (arr[j] > pivot) j--;
+
+        if (i >= j) break;
+
+        swap(arr[i], arr[j]);
     }
 
-    if(p != start) quickSort(arr, start, i);
-    if(p != end) quickSort(arr, p+1, end);
+    swap(arr[low], arr[j]);
+    return j;
+}
+
+void quickSort(vector<int> &arr, int low, int high) {
+    if (low >= high) return;
+
+    int p = partition(arr, low, high);
+
+    quickSort(arr, low, p - 1);
+    quickSort(arr, p + 1, high);
 }
 
 int main() {
