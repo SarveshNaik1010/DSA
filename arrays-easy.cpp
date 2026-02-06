@@ -37,25 +37,39 @@ void isSorted(int arr[], int n) {
     cout << endl;
 }
 
+// O(n2) approach
+// void removeDuplicate(int arr[], int n) {
+//     int num = arr[0];
+//     int i = 1;
+//     while(i < n) {
+//         if(arr[i] != num) {
+//             num = arr[i];
+//             i++;
+//             continue;
+//         }
+
+//         for(int j = i; j < n - 1; j++) {
+//             arr[j] = arr[j+1];
+//         }
+//         n--;
+//     }
+
+//     for(int i = 0; i < n; i++) {
+//         cout << arr[i] << " ";
+//     }
+//     cout << endl;
+// }
+
 void removeDuplicate(int arr[], int n) {
-    int num = arr[0];
-    int i = 1;
-    while(i < n) {
-        if(arr[i] != num) {
-            num = arr[i];
+    int i = 0;
+    for(int j = 1; j < n; j++) {
+        if(arr[i] != arr[j]) {
+            arr[i+1] = arr[j];
             i++;
-            continue;
         }
-
-        for(int j = i; j < n - 1; j++) {
-            arr[j] = arr[j+1];
-        }
-        n--;
     }
 
-    for(int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
+    cout << i + 1;
     cout << endl;
 }
 
