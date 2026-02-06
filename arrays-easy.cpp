@@ -37,16 +37,43 @@ void isSorted(int arr[], int n) {
     cout << endl;
 }
 
+void removeDuplicate(int arr[], int n) {
+    int num = arr[0];
+    int i = 1;
+    while(i < n) {
+        if(arr[i] != num) {
+            num = arr[i];
+            i++;
+            continue;
+        }
+
+        for(int j = i; j < n - 1; j++) {
+            arr[j] = arr[j+1];
+        }
+        n--;
+    }
+
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
 int main() {
     int arr[] = {1, 2, 13, 4, 13, 5, 6, -1, 222, 4};
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    largestElement(arr, n);
-    secondLargest(arr, n);
+    // largestElement(arr, n);
+    // secondLargest(arr, n);
 
-    int arrSorted[] = {11, 12, 32, 444};
-    isSorted(arr, n);
-    isSorted(arrSorted, 4);
+    int arrSorted[] = {1, 2, 2, 3, 4, 4, 4, 4, 5, 6, 12, 12};
+    int size = sizeof(arrSorted) / sizeof(arrSorted[0]);
+    // isSorted(arr, n);
+    // isSorted(arrSorted, 4);
+
+    removeDuplicate(arrSorted, size);
+
+
 
     return 0;
 }
