@@ -29,12 +29,24 @@ void secondLargest(int arr[], int n) {
     cout << endl;
 }
 
+void isSorted(int arr[], int n) {
+    int i = 0;
+    while(arr[i] <= arr[i+1]) i++;
+    if(i == n - 1) cout << "Sorted";
+    else cout << "Not Sorted";
+    cout << endl;
+}
+
 int main() {
     int arr[] = {1, 2, 13, 4, 13, 5, 6, -1, 222, 4};
     int n = sizeof(arr) / sizeof(arr[0]);
 
     largestElement(arr, n);
     secondLargest(arr, n);
+
+    int arrSorted[] = {11, 12, 32, 444};
+    isSorted(arr, n);
+    isSorted(arrSorted, 4);
 
     return 0;
 }
