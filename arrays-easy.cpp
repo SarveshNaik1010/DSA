@@ -74,13 +74,28 @@ void removeDuplicate(int arr[], int n) {
 }
 
 void leftRotate(int arr[], int n, int k) {
-   for(int j = 0; j <= k; k++) {
-     int ele = arr[j];
-        for(int i = 0; i < n - 1; i++) {
-            arr[i] = arr[i+1];
-        }
-        arr[n-1] = ele;
-   }
+    k = k % n;
+    if(k == 0) return;
+
+    // 1. Extract
+    vector<int> tempArr;
+    for(int i = 0; i < k; i++) {
+        tempArr.push_back(arr[i]);
+    }
+
+    // 2. Put the last element at the top (half rotate)
+    int j = k;
+    int i = 0;
+    while(j < n) {
+        arr[i] = arr[j];
+        j++;
+        i++;
+    }
+
+    // 3. Put the first element at the last (half rotate)
+    for(int i = n - k; i < n; i++) {
+        arr[i] = tempArr[i - (n-k)];
+    }
 
     for(int i = 0; i < n; i++) {
         cout << arr[i] << " ";
@@ -102,9 +117,9 @@ int main() {
 
     // removeDuplicate(arrSorted, size);
 
-    int newArr[] = {1, 2, 3, 4, 5};
-    int newSize = sizeof(newArr) / sizeof(newArr[0]);
-    leftRotate(newArr, newSize);
+    int newArr[] = {10, 20, 30, 40, 50, 60, 70};
+    int newSize = 7;
+    leftRotate(newArr, newSize, 3);
 
 
 
