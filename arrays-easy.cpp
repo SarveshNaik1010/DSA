@@ -73,6 +73,21 @@ void removeDuplicate(int arr[], int n) {
     cout << endl;
 }
 
+void leftRotate(int arr[], int n, int k) {
+   for(int j = 0; j <= k; k++) {
+     int ele = arr[j];
+        for(int i = 0; i < n - 1; i++) {
+            arr[i] = arr[i+1];
+        }
+        arr[n-1] = ele;
+   }
+
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
 int main() {
     int arr[] = {1, 2, 13, 4, 13, 5, 6, -1, 222, 4};
     int n = sizeof(arr) / sizeof(arr[0]);
@@ -85,7 +100,11 @@ int main() {
     // isSorted(arr, n);
     // isSorted(arrSorted, 4);
 
-    removeDuplicate(arrSorted, size);
+    // removeDuplicate(arrSorted, size);
+
+    int newArr[] = {1, 2, 3, 4, 5};
+    int newSize = sizeof(newArr) / sizeof(newArr[0]);
+    leftRotate(newArr, newSize);
 
 
 
