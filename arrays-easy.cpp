@@ -104,7 +104,7 @@ void leftRotate(int arr[], int n, int k) {
 }
 
 int main() {
-    int arr[] = {1, 2, 13, 4, 13, 5, 6, -1, 222, 4};
+    int arr[] = {1, 2, 0, 2, 0, 1, 0, 23, 0, 0, 23};
     int n = sizeof(arr) / sizeof(arr[0]);
 
     // largestElement(arr, n);
@@ -119,8 +119,7 @@ int main() {
 
     int newArr[] = {10, 20, 30, 40, 50, 60, 70};
     int newSize = 7;
-    leftRotate(newArr, newSize, 3);
-
+    // leftRotate(newArr, newSize, 3);
 
 
     return 0;
