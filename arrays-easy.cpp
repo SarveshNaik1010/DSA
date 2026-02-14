@@ -103,6 +103,42 @@ void leftRotate(int arr[], int n, int k) {
     cout << endl;
 }
 
+void moveZerosNormal(int arr[], int n) {
+    int temp[n];
+    int j = 0;
+    for(int i = 0; i < n; i++) {
+        if(arr[i] != 0) {
+            temp[j++] = arr[i];
+        }
+    }
+
+    for(int i = j - 1; i < n; i++) {
+        temp[i] = 0;
+    }
+
+    for(int i = 0; i < n; i++) {
+        cout << temp[i] << " ";
+    }
+
+    cout << endl;
+}
+
+void moveZeros(int arr[], int n) {
+    int j = 0;
+    for(int i = 0; i < n; i++) {
+        if(arr[i] != 0) {
+            swap(arr[i], arr[j]);
+            j++;
+        }
+    }
+
+     for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+
+    cout << endl;
+}
+
 int main() {
     int arr[] = {1, 2, 0, 2, 0, 1, 0, 23, 0, 0, 23};
     int n = sizeof(arr) / sizeof(arr[0]);
@@ -120,6 +156,7 @@ int main() {
     int newArr[] = {10, 20, 30, 40, 50, 60, 70};
     int newSize = 7;
     // leftRotate(newArr, newSize, 3);
+    moveZeros(arr, n);
 
 
     return 0;
