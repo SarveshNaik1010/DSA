@@ -139,6 +139,10 @@ void moveZeros(int arr[], int n) {
     cout << endl;
 }
 
+// void linearSearch(int arr, int n, int num) {
+//     for()
+// }
+
 int main() {
     int arr[] = {1, 2, 0, 2, 0, 1, 0, 23, 0, 0, 23};
     int n = sizeof(arr) / sizeof(arr[0]);
