@@ -160,14 +160,57 @@ void unionArrays(int arr1[], int arr2[], int n, int m) {
     // cout << endl;
 
     // 2 Pointer Approach
-    vector<int> Union;
-    int lim = n < m ? n : m;
-    int p1, p2;
-    p1 = p2 = 0;
-    
-    for(int i = 0; i < lim; i++) {
-        if()
+     vector<int> Union;
+    int i = 0, j = 0;
+
+    while(i < n && j < m) {
+
+        // Skip duplicates in arr1
+        if(i > 0 && arr1[i] == arr1[i-1]) {
+            i++;
+            continue;
+        }
+
+        // Skip duplicates in arr2
+        if(j > 0 && arr2[j] == arr2[j-1]) {
+            j++;
+            continue;
+        }
+
+        if(arr1[i] < arr2[j]) {
+            Union.push_back(arr1[i]);
+            i++;
+        }
+        else if(arr1[i] > arr2[j]) {
+            Union.push_back(arr2[j]);
+            j++;
+        }
+        else { // equal
+            Union.push_back(arr1[i]);
+            i++;
+            j++;
+        }
     }
+
+    // Add remaining elements from arr1
+    while(i < n) {
+        if(i == 0 || arr1[i] != arr1[i-1])
+            Union.push_back(arr1[i]);
+        i++;
+    }
+
+    // Add remaining elements from arr2
+    while(j < m) {
+        if(j == 0 || arr2[j] != arr2[j-1])
+            Union.push_back(arr2[j]);
+        j++;
+    }
+
+    // Print result
+    for(auto it : Union) {
+        cout << it << " ";
+    }
+    cout << endl;
 
 }
 
