@@ -143,6 +143,34 @@ void moveZeros(int arr[], int n) {
 //     for()
 // }
 
+void unionArrays(int arr1[], int arr2[], int n, int m) {
+    // Hashing Approach
+    // map<int, int> mpp;
+    // for(int i = 0; i < n; i++) {
+    //     mpp[arr1[i]]++;
+    // }
+
+    // for(int i = 0; i < m; i++) {
+    //     mpp[arr2[i]]++;
+    // }
+
+    // for(auto it: mpp) {
+    //     cout << it.first << " ";
+    // }
+    // cout << endl;
+
+    // 2 Pointer Approach
+    vector<int> Union;
+    int lim = n < m ? n : m;
+    int p1, p2;
+    p1 = p2 = 0;
+    
+    for(int i = 0; i < lim; i++) {
+        if()
+    }
+
+}
+
 int main() {
     int arr[] = {1, 2, 0, 2, 0, 1, 0, 23, 0, 0, 23};
     int n = sizeof(arr) / sizeof(arr[0]);
@@ -160,7 +188,12 @@ int main() {
     int newArr[] = {10, 20, 30, 40, 50, 60, 70};
     int newSize = 7;
     // leftRotate(newArr, newSize, 3);
-    moveZeros(arr, n);
+    // moveZeros(arr, n);
+
+    int arr1[] = {1, 2, 2, 3, 5, 7, 9};
+    int arr2[] = {2, 3, 4, 5, 6, 8, 9, 10};
+
+    unionArrays(arr1, arr2, 7, 8);
 
 
     return 0;
