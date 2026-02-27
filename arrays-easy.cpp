@@ -11,21 +11,40 @@ void largestElement(int arr[], int n) {
     cout << endl;
 }
 
-void secondLargest(int arr[], int n) {
-    int largest = arr[0] >= arr[1] ? arr[0] : arr[1];
-    int secondLargest = arr[0] < arr[1] ? arr[0] : arr[1];
+// void secondLargest(int arr[], int n) {
+//     int largest = arr[0] >= arr[1] ? arr[0] : arr[1];
+//     int secondLargest = arr[0] < arr[1] ? arr[0] : arr[1];
 
-    // cout << largest << " " << secondLargest;
+//     // cout << largest << " " << secondLargest;
+
+//     for(int i = 2; i < n; i++) {
+//         if(arr[i] >= largest) {
+//             secondLargest = largest;
+//             largest = arr[i];
+//         }
+//         if(arr[i] < largest && arr[i] > secondLargest) secondLargest = arr[i];
+//     }
+
+//     cout << secondLargest;
+//     cout << endl;
+// }
+
+void secondLargest(int arr[], int n) {
+    int large = arr[0] > arr[1] ? arr[0] : arr[1];
+    int secLarge = arr[0] <= arr[1] ? arr[0] : arr[1];
 
     for(int i = 2; i < n; i++) {
-        if(arr[i] >= largest) {
-            secondLargest = largest;
-            largest = arr[i];
+        if(arr[i] >= secLarge && arr[i] < large) {
+            secLarge = arr[i];
         }
-        if(arr[i] < largest && arr[i] > secondLargest) secondLargest = arr[i];
+
+        if(arr[i] > large) {
+            secLarge = large;
+            large = arr[i];
+        }
     }
 
-    cout << secondLargest;
+    cout << secLarge;
     cout << endl;
 }
 
@@ -215,11 +234,11 @@ void unionArrays(int arr1[], int arr2[], int n, int m) {
 }
 
 int main() {
-    int arr[] = {1, 2, 0, 2, 0, 1, 0, 23, 0, 0, 23};
+    int arr[] = {1, 2, 0, 4, 4, 1, 0, 24, 0, 0, 24};
     int n = sizeof(arr) / sizeof(arr[0]);
 
     // largestElement(arr, n);
-    // secondLargest(arr, n);
+    secondLargest(arr, n);
 
     int arrSorted[] = {1, 2, 2, 3, 4, 4, 4, 4, 5, 6, 12, 12};
     int size = sizeof(arrSorted) / sizeof(arrSorted[0]);
@@ -236,7 +255,7 @@ int main() {
     int arr1[] = {1, 2, 2, 3, 5, 7, 9};
     int arr2[] = {2, 3, 4, 5, 6, 8, 9, 10};
 
-    unionArrays(arr1, arr2, 7, 8);
+    // unionArrays(arr1, arr2, 7, 8);
 
 
     return 0;
