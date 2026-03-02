@@ -312,6 +312,32 @@ int consicativeOne(int arr[], int n) {
 
 }
 
+int numOnce(int arr[], int n) {
+    // map<int, int> hash;
+    // int minNum = 0;
+
+    // for(int i = 0; i < n; i++) {
+    //     hash[arr[i]]++;
+    // }
+
+    // for(auto it: hash) {
+    //     if(it.second == 1) minNum = it.first;
+    // }
+
+    // cout << minNum;
+    // cout << endl;
+    // return minNum;
+
+    int XOR = 0;
+    for(int i = 0; i < n; i++) {
+        XOR = XOR ^ arr[i];
+    }
+
+    cout << XOR << endl;
+
+    return XOR;
+} 
+
 int main() {
     int arr[] = {1, 2, 0, 4, 4, 1, 0, 24, 0, 0, 24};
     int n = sizeof(arr) / sizeof(arr[0]);
@@ -345,7 +371,11 @@ int main() {
     
     int arrBi[] = {1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0};
     int oneN = sizeof(arrBi) / sizeof(arrBi[0]);
-    consicativeOne(arrBi, oneN);
+    // consicativeOne(arrBi, oneN);
+
+     int arrOne[] = {4,1,2,1,2};
+     int sizeOne = sizeof(arr) / sizeof(arr[0]);
+    numOnce(arrOne, sizeOne);
 
     return 0;
 }
