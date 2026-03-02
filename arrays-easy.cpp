@@ -288,6 +288,30 @@ int findMissing(int arr[], int size) {
     return num;
 }
 
+int consicativeOne(int arr[], int n) {
+    int count = 0;
+    int maxCount = 0;
+    for(int i = 0; i < n; i++) {
+        if(arr[i] == 0) {
+            if(count >= maxCount) {
+                maxCount = count;
+            }
+
+            count = 0;
+        }
+        else count++;
+    }
+
+     if(count > maxCount) {
+        maxCount = count;
+    }
+
+    cout << maxCount << endl;
+
+    return maxCount;
+
+}
+
 int main() {
     int arr[] = {1, 2, 0, 4, 4, 1, 0, 24, 0, 0, 24};
     int n = sizeof(arr) / sizeof(arr[0]);
@@ -315,9 +339,13 @@ int main() {
     // int arrMiss[] = {8, 2, 4, 5, 3, 7, 1};
     int arrMiss[] = {1, 2, 4};
     int sizeMiss = sizeof(arrMiss) / sizeof(arrMiss[0]);
-
     
-    findMissing(arrMiss, sizeMiss);
+    
+    // findMissing(arrMiss, sizeMiss);
+    
+    int arrBi[] = {1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0};
+    int oneN = sizeof(arrBi) / sizeof(arrBi[0]);
+    consicativeOne(arrBi, oneN);
 
     return 0;
 }
