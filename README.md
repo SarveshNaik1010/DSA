@@ -5,7 +5,7 @@
 ## 1. Summation of the First N Natural Numbers
 
 Formula:
-1 + 2 + 3 + ... + N = (N \* (N + 1)) / 2
+1 + 2 + 3 + ... + N = (N * (N + 1)) / 2
 
 ---
 

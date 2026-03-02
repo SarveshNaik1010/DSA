@@ -79,47 +79,84 @@ void isSorted(int arr[], int n) {
 //     cout << endl;
 // }
 
+// void removeDuplicate(int arr[], int n) {
+//     int i = 0;
+//     for(int j = 1; j < n; j++) {
+//         if(arr[i] != arr[j]) {
+//             arr[i+1] = arr[j];
+//             i++;
+//         }
+//     }
+
+//     cout << i + 1;
+//     cout << endl;
+// }
+
 void removeDuplicate(int arr[], int n) {
-    int i = 0;
-    for(int j = 1; j < n; j++) {
-        if(arr[i] != arr[j]) {
-            arr[i+1] = arr[j];
-            i++;
+    int ele = arr[0];
+    int indx = 1;
+    for(int i = 1; i < n; i++) {
+        if(ele != arr[i]) {
+            ele = arr[i];
+            arr[indx] = ele;
+            indx++;
         }
     }
 
-    cout << i + 1;
+      for(int i = 0; i < indx; i++) {
+        cout << arr[i] << " ";
+    }
     cout << endl;
 }
 
-void leftRotate(int arr[], int n, int k) {
-    k = k % n;
-    if(k == 0) return;
+// void leftRotate(int arr[], int n, int k) {
+//     k = k % n;
+//     if(k == 0) return;
 
-    // 1. Extract
-    vector<int> tempArr;
+//     // 1. Extract
+//     vector<int> tempArr;
+//     for(int i = 0; i < k; i++) {
+//         tempArr.push_back(arr[i]);
+//     }
+
+//     // 2. Put the last element at the top (half rotate)
+//     int j = k;
+//     int i = 0;
+//     while(j < n) {
+//         arr[i] = arr[j];
+//         j++;
+//         i++;
+//     }
+
+//     // 3. Put the first element at the last (half rotate)
+//     for(int i = n - k; i < n; i++) {
+//         arr[i] = tempArr[i - (n-k)];
+//     }
+
+//     for(int i = 0; i < n; i++) {
+//         cout << arr[i] << " ";
+//     }
+//     cout << endl;
+// }
+
+int* leftRotate(int arr[], int n, int k) {
+    if(k == 0) return arr;
+
     for(int i = 0; i < k; i++) {
-        tempArr.push_back(arr[i]);
-    }
-
-    // 2. Put the last element at the top (half rotate)
-    int j = k;
-    int i = 0;
-    while(j < n) {
-        arr[i] = arr[j];
-        j++;
-        i++;
-    }
-
-    // 3. Put the first element at the last (half rotate)
-    for(int i = n - k; i < n; i++) {
-        arr[i] = tempArr[i - (n-k)];
+        int buff = arr[0];
+        for(int j = 0; j < n; j++) {
+            arr[j] = arr[j+1];
+        }
+        arr[n-1] = buff;
     }
 
     for(int i = 0; i < n; i++) {
         cout << arr[i] << " ";
     }
     cout << endl;
+
+    return arr;
+
 }
 
 void moveZerosNormal(int arr[], int n) {
@@ -233,12 +270,30 @@ void unionArrays(int arr1[], int arr2[], int n, int m) {
 
 }
 
+int findMissing(int arr[], int size) {
+    int largestNum = size + 1;
+
+    int num = 0;
+    int expectedSum = (largestNum * (largestNum + 1)) / 2;
+    
+    int currentSum = 0;
+
+    for(int i = 0; i < size; i++) {
+        currentSum += arr[i];
+    }
+
+    num = expectedSum - currentSum;
+    cout << num << endl;
+
+    return num;
+}
+
 int main() {
     int arr[] = {1, 2, 0, 4, 4, 1, 0, 24, 0, 0, 24};
     int n = sizeof(arr) / sizeof(arr[0]);
 
     // largestElement(arr, n);
-    secondLargest(arr, n);
+    // secondLargest(arr, n);
 
     int arrSorted[] = {1, 2, 2, 3, 4, 4, 4, 4, 5, 6, 12, 12};
     int size = sizeof(arrSorted) / sizeof(arrSorted[0]);
@@ -257,6 +312,12 @@ int main() {
 
     // unionArrays(arr1, arr2, 7, 8);
 
+    // int arrMiss[] = {8, 2, 4, 5, 3, 7, 1};
+    int arrMiss[] = {1, 2, 4};
+    int sizeMiss = sizeof(arrMiss) / sizeof(arrMiss[0]);
+
+    
+    findMissing(arrMiss, sizeMiss);
 
     return 0;
 }
