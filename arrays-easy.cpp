@@ -338,6 +338,33 @@ int numOnce(int arr[], int n) {
     return XOR;
 } 
 
+int subArrSum(int arr[], int n, int k) {
+    int largest =  0;
+    for(int i = 0; i < n; i++) {
+        int sum = arr[i];
+        int j = i + 1;
+        int count = 1;
+        while(j < n) {
+            count++;
+            int pre = sum;
+            sum += arr[j];
+            cout << pre << " + " << arr[j] << " = " << sum << endl;
+            
+            if(sum == k) {
+                if(count > largest) {
+                    largest = count;
+                }
+                cout << "Count = " << count << endl;
+                break;
+            }
+            j++;
+        }
+    }
+
+    cout << largest << endl;
+    return largest;
+}
+
 int main() {
     int arr[] = {1, 2, 0, 4, 4, 1, 0, 24, 0, 0, 24};
     int n = sizeof(arr) / sizeof(arr[0]);
@@ -375,7 +402,12 @@ int main() {
 
      int arrOne[] = {4,1,2,1,2};
      int sizeOne = sizeof(arr) / sizeof(arr[0]);
-    numOnce(arrOne, sizeOne);
+    // numOnce(arrOne, sizeOne);
+
+    int larSumArr[] = {10, 5, 2, 7, 2, 9};
+    size = sizeof(larSumArr) / sizeof(larSumArr[0]);
+    subArrSum(larSumArr, size, 15);
+
 
     return 0;
 }
