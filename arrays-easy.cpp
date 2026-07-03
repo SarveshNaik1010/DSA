@@ -339,30 +339,50 @@ int numOnce(int arr[], int n) {
 } 
 
 int subArrSum(int arr[], int n, int k) {
-    int largest =  0;
-    for(int i = 0; i < n; i++) {
-        int sum = arr[i];
-        int j = i + 1;
-        int count = 1;
-        while(j < n) {
-            count++;
-            int pre = sum;
-            sum += arr[j];
-            cout << pre << " + " << arr[j] << " = " << sum << endl;
+    // int largest =  0;
+    // for(int i = 0; i < n; i++) {
+    //     int sum = arr[i];
+    //     int j = i + 1;
+    //     int count = 1;
+    //     while(j < n) {
+    //         count++;
+    //         int pre = sum;
+    //         sum += arr[j];
+    //         cout << pre << " + " << arr[j] << " = " << sum << endl;
             
-            if(sum == k) {
-                if(count > largest) {
-                    largest = count;
-                }
-                cout << "Count = " << count << endl;
-                break;
-            }
-            j++;
-        }
+    //         if(sum == k) {
+    //             if(count > largest) {
+    //                 largest = count;
+    //             }
+    //             cout << "Count = " << count << endl;
+    //         }
+    //         j++;
+    //     }
+    // }
+
+    // cout << largest << endl;
+    // return largest;
+
+    map<int, int> hashMap;
+    int sum = 0;
+    for(int i = 0; i < n; i++) {
+        sum += arr[i];
     }
 
-    cout << largest << endl;
-    return largest;
+    cout << sum << endl;
+
+    int cancel = 0;
+    for(int i = n - 1; i >= 0; i--) {
+        hashMap[i] = sum - cancel;
+        cancel += arr[i];
+    }
+
+    for(auto it: hashMap) {
+        cout << it.first << " " << it.second << endl;
+    }
+    
+    return 0;
+
 }
 
 int main() {
@@ -404,7 +424,7 @@ int main() {
      int sizeOne = sizeof(arr) / sizeof(arr[0]);
     // numOnce(arrOne, sizeOne);
 
-    int larSumArr[] = {10, 5, 2, 7, 2, 9};
+    int larSumArr[] = {10, 5, 2, 7, 1, 9};
     size = sizeof(larSumArr) / sizeof(larSumArr[0]);
     subArrSum(larSumArr, size, 15);
 
