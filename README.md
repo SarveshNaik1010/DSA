@@ -5,7 +5,7 @@
 ## 1. Summation of the First N Natural Numbers
 
 Formula:
-1 + 2 + 3 + ... + N = (N * (N + 1)) / 2
+1 + 2 + 3 + ... + N
 
 ---
 
@@ -20,3 +20,7 @@ for (int i = 1; i <= N; i++) {
 ```
 
 ## TIP (For Patterns) - A bit of observation, maths, and bit of symmetry
+
+## TIP - Do XOR when you want to find a number with like frequency of 1 and all the other number apears twice
+
+# Reason: [2, 2, 1] --> 2 ^ 2 ^ 1 == 0 ^ 1 == 1
