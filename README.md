@@ -23,4 +23,9 @@ for (int i = 1; i <= N; i++) {
 
 ## TIP - Do XOR when you want to find a number with like frequency of 1 and all the other number apears twice
 
-# Reason: [2, 2, 1] --> 2 ^ 2 ^ 1 == 0 ^ 1 == 1
+## Reason: [2, 2, 1] --> 2 ^ 2 ^ 1 == 0 ^ 1 == 1
+
+
+# Arrays Hard: Find the repeating and missing numbers
+
+![Sol Formulas](https://static.takeuforward.org/content/-c1ci-9XF)
